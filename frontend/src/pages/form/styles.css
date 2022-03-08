@@ -1,0 +1,74 @@
+.dsmovie-form-container{
+    max-width:480px;
+    padding: 20px;
+    margin: 40px auto;
+}
+
+.dsmovie-form{
+    width: calc(100% - 20px);
+}
+
+.dsmovie-card-bottom-container h3{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 20px;
+    color:#4A4A4A;
+}
+
+.dsmovie-card-image{
+    width:100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.dsmovie-form-group{
+    margin-bottom: 20px;
+}
+
+.dsmovie-card-bottom-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 10px 20px 10px;
+    border-radius: 0 0 8px 8px;
+    background-color: #fff;
+}
+
+.dsmovie-form .form-group label{
+    font-size: 12px;
+    font-weight: 400;
+    color:#AAA;
+}
+
+.dsmovie-form .form-group input{
+    width: 100%;
+    border-radius: 4px;
+    height: 40px;
+    border: 1px solid #9E9E9E;
+    padding: 10px;
+    color: #686868;
+}
+.dsmovie-form .form-group select{
+    width: 100%;
+    border-radius: 4px;
+    height: 40px;
+    border: 1px solid #9E9E9E;
+
+}
+
+.dsmovie-btn{
+    background-color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 700;
+    height: 40px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+.dsmovie-form-saveButton{
+    display: flex;
+    justify-content: center;
+}
