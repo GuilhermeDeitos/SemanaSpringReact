@@ -1,18 +1,43 @@
-import {ReactComponent as Arrow} from '../../assets/img/arrow.svg'
-import './styles.css'
-function listing() {
+import Pagination from "../../components/pagination"
+import MovieCard from "../../components/movieCard"
+
+
+
+function listing(){
     return(
-        <div className="dsmovie-pagination-container">
-            <div className="dsmovie-pagination-box">
-                <button className="dsmovie-pagination-button" disabled={true}>
-                    <Arrow/>
-                </button>   
-                <p>{`${1} de  ${3}`}</p>
-                <button className="dsmovie-pagination-button" disabled={false}>
-                    <Arrow className="dsmovie-arrow-flip"/>
-                </button>
+        <div>
+            <Pagination/>
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                        <MovieCard/>
+                        
+                    </div>
+                    <div className="col-sm-6 col-lg-4 col-xl-3">
+                        <MovieCard/>
+                        
+                    </div>
+                    <div className="col-sm-6 col-lg-4 col-xl-3">
+                        <MovieCard/>
+                        
+                    </div>
+                    <div className="col-sm-6 col-lg-4 col-xl-3">
+                        <MovieCard/>
+                        
+                    </div>
+                    <div className="col-sm-6 col-lg-4 col-xl-3">
+                        <MovieCard/>
+                        
+                    </div>
+                    
+                    
+                    
+                </div>
             </div>
             
+
+
+
         </div>
     )
 }
