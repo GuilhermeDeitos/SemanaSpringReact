@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-  --color-primary: #4D41C0;
+  --color-primary: #E83F5B;
 }
 
 * {
@@ -16,4 +16,5 @@ html, body {
 a, a:hover {
   text-decoration: none;
   color: unset;
+
 }
