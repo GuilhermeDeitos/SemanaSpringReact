@@ -1,4 +1,5 @@
-import{ReactComponent as GithubIcon} from '../../assets/img/github.svg'
+//Criação do componente a partir da imagem
+import{ReactComponent as GithubIcon} from '../../assets/img/github.svg' 
 
 import './styles.css'
 
@@ -21,4 +22,4 @@ function navbar(){
       );
 }
 
-export default navbar
+export default navbar //Exportação do componente

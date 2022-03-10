@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
+//Importação do componente Link e CSS
 import { Link } from 'react-router-dom';
 import './styles.css'
 
 function form(){
+    //Objeto movie apenas para exemplo
     const movie = {
         id:1, 
         image:"https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yaX5hliSF1rwZ9WVNbUchndjFSb.jpg",
@@ -10,12 +13,14 @@ function form(){
         score: 4.5
 
     }
+
     return(
         <div className="dsmovie-form-container">
             <img className="dsmovie-card-image" src= {movie.image} alt={movie.title} />
             <div className=" dsmovie-card-bottom-container">
                 <h3>{movie.title}</h3>
-                <form className="dsmovie-form">
+
+                <form className="dsmovie-form">//Formulário para avaliação do filme
                     <div className="form-group dsmovie-form-group">
                         <label htmlFor="email">Informe seu email</label>
                         <input type="email" id="email" className="form-input"  placeholder='example@seuDominio.com'/>
@@ -35,7 +40,7 @@ function form(){
                         <button type="submit" className="btn btn-primary dsmovie-btn">Salvar</button>
                     </div>
                 </form> 
-                <Link to="/">
+                <Link to="/"> //Ir para a rota '/' caso clicar em cancelar
                     <button className="btn btn-primary dsmovie-btn mt-3">Cancelar</button>
                 </Link>
             </div>    
@@ -43,4 +48,4 @@ function form(){
     );
 }
 
-export default form
+export default form //Exportação do componente
