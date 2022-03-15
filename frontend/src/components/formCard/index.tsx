@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-//Importação do componente Link e CSS
-import { Link, useNavigate } from 'react-router-dom';
+
+import { Link, useNavigate } from 'react-router-dom'; //Importação
 import axios, {AxiosRequestConfig} from "axios"
 import React, { useEffect, useState } from 'react';
 import {Movie} from "../../types/movies"
