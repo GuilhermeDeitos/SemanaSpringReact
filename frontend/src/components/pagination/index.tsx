@@ -1,23 +1,28 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 //Criação do componente a partir da imagem
 import {ReactComponent as Arrow} from '../../assets/img/arrow.svg'
+import { MoviePage } from '../../types/movies';
 import './styles.css'
 
-function pagination() {
-    return(
+type Props = {
+    page: MoviePage;
+    onChange: Function;
+}
+
+function pagination({ page, onChange } : Props) {
+    return (
         <div className="dsmovie-pagination-container">
             <div className="dsmovie-pagination-box">
-                <button className="dsmovie-pagination-button" disabled={true}> //habilitar o botão pois nesse exemplo é a primeira pagina
-                    <Arrow/>
-                </button>   
-                <p>{`${1} de  ${3}`}</p> //Numeros de exeplo apenas para visualização
-                <button className="dsmovie-pagination-button" disabled={false}>
-                    <Arrow className="dsmovie-arrow-flip"/>
+                <button className="dsmovie-pagination-button" disabled={page.first} onClick={() => onChange(page.number - 1)} >
+                    <Arrow />
+                </button>
+                <p>{`${page.number + 1} de ${page.totalPages}`}</p>
+                <button className="dsmovie-pagination-button" disabled={page.last} onClick={() => onChange(page.number + 1)}>
+                    <Arrow className="dsmovie-flip-horizontal" />
                 </button>
             </div>
-            
         </div>
-    )
+    );
 }
 
 export default pagination //Exportação do componente

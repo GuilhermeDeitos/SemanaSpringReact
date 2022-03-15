@@ -4,16 +4,53 @@ import {ReactComponent as StarHalf} from '../../assets/img/star-half.svg'
 import {ReactComponent as StarEmpty} from '../../assets/img/star-empty.svg'
 import './styles.css'
 
-function movieStars(){
+type Props = {
+    score: number;
+}
+
+type StarProps = {
+    fill: number;
+}
+
+function getFills(score:number){
+    const fills = [0,0,0,0,0]
+
+    const integerPart = Math.floor(score)
+
+    for(let i = 0; i < integerPart; i++){
+        fills[i] = 1
+    }
+
+    const difference = score - integerPart
+
+    if(difference > 0){
+        fills[integerPart] = 0.5
+    }
+
+    return fills
+}
+
+function Star({fill}:StarProps){
+    if(fill === 0){
+        return <StarEmpty />
+    } else if (fill === 0.5){
+        return <StarHalf />
+    } else {
+        return <StarFull />
+    }
+}
+
+function movieStars({score} : Props){
+    const fills = getFills(score)
+
     return(
-        // eslint-disable-next-line react/jsx-no-comment-textnodes
         <div className="dsmovie-stars-container">
-            //Utilização do componente
-            <StarFull />
-            <StarFull />
-            <StarFull />
-            <StarHalf />
-            <StarEmpty />
+            {/*Utilização do componente*/}
+            <Star fill={fills[0]}/>
+            <Star fill={fills[1]}/>
+            <Star fill={fills[2]}/>
+            <Star fill={fills[3]}/>
+            <Star fill={fills[4]}/>  
         </div>
     )
 }

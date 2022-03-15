@@ -1,48 +1,55 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-//Importação dos componentes previamente criados
-import Pagination from "../../components/pagination"
-import MovieCard from "../../components/movieCard"
+import axios from "axios";
+import MovieCard from "../../components/movieCard";
+import Pagination from "../../components/pagination";
+import { useEffect, useState } from "react";
+import { MoviePage } from "../../types/movies";
+import { BASE_URL } from "../../utils/requests";
 
+function Listing() {
+    const [pageNumber, setPageNumber] = useState(0);
 
+    const [page, setPage] = useState<MoviePage>({
+        content: [],
+        last: true,
+        totalPages: 0,
+        totalElements: 0,
+        size: 12,
+        number: 0,
+        first: true,
+        numberOfElements: 0,
+        empty: true
+    });
 
-function listing(){
-    return(
-        <div>
-            <Pagination/> //Utilização do componente
-            <div className="container"> //Utilizando a classe row do bootstrap
-                <div className="row"> //Utilizando a classe row do bootstrap
-                    <div className="col-sm-6 col-lg-4 col-xl-3 mb-3"> //Utilizando a classe col  do bootstrao para referencar as colunas, junto é utilizado algumas classes de responsividade da mesma biblioteca e o numero de cards nessas opções
-                    
-                        <MovieCard/> //Utilização do componente
-                        
-                    </div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3">
-                        <MovieCard/>
-                        
-                    </div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3">
-                        <MovieCard/>
-                        
-                    </div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3">
-                        <MovieCard/>
-                        
-                    </div>
-                    <div className="col-sm-6 col-lg-4 col-xl-3">
-                        <MovieCard/>
-                        
-                    </div>
-                    
-                    
-                    
+    useEffect(() => {
+        axios.get(`${BASE_URL}/movies?size=12&page=${pageNumber}`)
+            .then(response => {
+                const data = response.data as MoviePage;
+                setPage(data);
+            });
+    }, [pageNumber]);
+
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+
+    return (
+        <>
+            <Pagination page={page} onChange={handlePageChange}/>
+            <div className="container">
+                <div className="row">
+                    {page.content.map(movie =>    (
+                            <div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                                <MovieCard movie = {movie} />
+                            </div>
+                        )
+                    )}
+
                 </div>
+
             </div>
-            
+        </>
 
-
-
-        </div>
-    )
+    );
 }
 
-export default listing //Exportação do componente
+export default Listing;

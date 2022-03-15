@@ -40,6 +40,6 @@
     color: var(--color-primary);
 }
 
-.dsmovie-arrow-flip {
+.dsmovie-flip-horizontal {
     transform: rotate(180deg);
 }
