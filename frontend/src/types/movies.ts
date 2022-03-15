@@ -1,4 +1,4 @@
-export type Movie = {
+export type Movie = { //Criando e exportando o tipo Movie que possuirá os elementos presentes no filme, semelhante a criação de um objeto
     id: number;
     title: string;
     score: number;
